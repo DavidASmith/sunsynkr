@@ -1,15 +1,18 @@
-
-#' Get details of power plants associated with a Sunsynk account
+#' Get current power flow information for a plant
 #'
 #' @param token Authorisation token.
+#' @param plant_id Plant id.
 #'
 #' @return List.
 #' @export
 #'
 #' @examples
-get_plants <- function(token) {
+get_flow <- function(token, 
+                     plant_id) {
   
-  url <- "https://api.sunsynk.net/api/v1/plants?page=1&limit=100&name=&status="
+  url <- paste0("https://api.sunsynk.net/api/v1/plant/energy/", 
+                plant_id, 
+                "/flow")
   
   req <- httr2::request(url) |> 
     httr2::req_headers(authorization = paste0("Bearer ", 
@@ -22,5 +25,4 @@ get_plants <- function(token) {
     httr2::resp_body_json()
   
   res
-  
 }

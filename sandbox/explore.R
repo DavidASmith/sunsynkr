@@ -6,60 +6,16 @@ library(ggplot2)
 token <- get_token()
 
 
-
-
 # Get plants info ----------------------------------------------------
-
-get_plants <- function(token) {
-  
-  url <- "https://api.sunsynk.net/api/v1/plants?page=1&limit=100&name=&status="
-  
-  req <- httr2::request(url) |> 
-    httr2::req_headers(authorization = paste0("Bearer ", token$data$access_token))
-  
-  res <- req |> 
-    httr2::req_perform()
-  
-  res <- res |> 
-    httr2::resp_body_json()
-  
-  res
-  
-  
-}
 
 plants <- get_plants(token)
 plants
-
 
 
 # Get flow ----------------------------------------------------------------
 
 plant_id <- plants$data$infos[[1]]$id
 
-get_flow <- function(token, 
-                     plant_id) {
-  
-  url <- paste0("https://api.sunsynk.net/api/v1/plant/energy/", 
-                plant_id, 
-                "/flow?date=", 
-                date)
-  
-  url <- paste0("https://api.sunsynk.net/api/v1/plant/energy/", 
-                plant_id, 
-                "/flow")
-  
-  req <- httr2::request(url) |> 
-    httr2::req_headers(authorization = paste0("Bearer ", token$data$access_token))
-  
-  res <- req |> 
-    httr2::req_perform()
-  
-  res <- res |> 
-    httr2::resp_body_json()
-  
-  res
-}
 
 flow <- get_flow(token, 
                  plant_id)

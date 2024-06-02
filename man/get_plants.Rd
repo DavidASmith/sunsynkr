@@ -7,7 +7,7 @@
 get_plants(token)
 }
 \arguments{
-\item{token}{}
+\item{token}{Authorisation token.}
 }
 \value{
 List.
