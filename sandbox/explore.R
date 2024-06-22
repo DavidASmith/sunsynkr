@@ -1,3 +1,4 @@
+library(sunsynkr)
 library(ggplot2)
 
 
@@ -5,12 +6,58 @@ library(ggplot2)
 
 token <- get_token()
 
+print_token(token)
 
 # Get plants info ----------------------------------------------------
 
 plants <- get_plants(token)
 plants
 
+
+x <- plants$data$infos[[1]]$address
+x
+
+# Redact personal info
+redact_character <- function(x) {
+  gsub("\\w", "X", x)
+}
+
+redact_character(x)
+
+
+x <- plants
+
+redact_plants <- function(x) {
+  
+  plant_infos <- x$data$infos
+  
+  redact_plant <- function(x) {
+    x$id <- redact_character(x$id)
+    x$name <- redact_character(x$name)
+    x$thumbUrl <- redact_character(x$thumbUrl)
+    x$address <- redact_character(x$address)
+    x$email <- redact_character(x$email)
+    x$phone <- redact_character(x$phone)
+    
+    x
+  }
+  
+  x$data$infos <- lapply(plant_infos, redact_plant)
+  
+  x
+  
+}
+
+plants |> 
+  redact_plants()
+
+# Print plants
+
+print_plants(plants)
+
+plants |> 
+  redact_plants() |> 
+  print_plants()
 
 # Get flow ----------------------------------------------------------------
 
@@ -21,9 +68,12 @@ flow <- get_flow(token,
                  plant_id)
 
 
+print_flow(flow)
+
+
 # Get day summary ---------------------------------------------------------
 
-date <- "2024-05-31"
+date <- "2024-06-21"
 
 # get_day_summary <- function(token, plant_id, date) {
 #   
@@ -100,11 +150,5 @@ day_summary_table <- get_day_summary_table(token, plant_id, date)
 
 # Plot daily summary
 
-day_summary_table |> 
-  tidyr::pivot_longer(-dt) |> 
-  ggplot(aes(dt, value)) + 
-  geom_line() + 
-  facet_wrap(~name, 
-             ncol = 1, 
-             scales = "free_y")
 
+plot_day_summary_table(day_summary_table)

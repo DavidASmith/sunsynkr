@@ -20,7 +20,7 @@ day_summary_info_to_col <- function(x, date) {
     dplyr::mutate(dt = paste0(date, " ", dt)) |>
     dplyr::mutate(dt = lubridate::ymd_hm(dt)) |>
     dplyr::mutate(value = as.numeric(value)) |> 
-    dplyr::rename(!!quo_name(col_name) := value)
+    dplyr::rename(!!rlang::as_name(col_name) := value)
   
   out
   
