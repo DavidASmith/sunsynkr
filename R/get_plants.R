@@ -21,6 +21,8 @@ get_plants <- function(token) {
   res <- res |> 
     httr2::resp_body_json()
   
+  class(res) <- "sunsynkr_plants"
+  
   res
   
 }

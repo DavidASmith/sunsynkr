@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-print_plants <- function(x) {
+print.sunsynkr_plants <- function(x) {
   plant_info <- x$data$infos
   
   plant_info |> 
@@ -17,6 +17,7 @@ print_plants <- function(x) {
                                       etoday = x$etoday, 
                                       etotal = x$etotal, 
                                       update_at = x$updateAt)) |> 
-    dplyr::bind_rows()
+    dplyr::bind_rows() |> 
+    print()
   
 }

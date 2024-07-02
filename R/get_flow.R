@@ -24,5 +24,7 @@ get_flow <- function(token,
   res <- res |> 
     httr2::resp_body_json()
   
+  class(res) <- "sunsynkr_flow"
+  
   res
 }

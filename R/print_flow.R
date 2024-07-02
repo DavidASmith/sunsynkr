@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-print_flow <- function(x) {
+print.sunsynkr_flow <- function(x) {
 
   # Get battery details
   batt_w <- x$data$battPower |> 

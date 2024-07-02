@@ -5,27 +5,18 @@ library(ggplot2)
 # Authentication ----------------------------------------------------------
 
 token <- get_token()
+token
 
-print_token(token)
 
 # Get plants info ----------------------------------------------------
 
 plants <- get_plants(token)
-plants
 
-
-x <- plants$data$infos[[1]]$address
-x
 
 # Redact personal info
 redact_character <- function(x) {
   gsub("\\w", "X", x)
 }
-
-redact_character(x)
-
-
-x <- plants
 
 redact_plants <- function(x) {
   
@@ -38,6 +29,7 @@ redact_plants <- function(x) {
     x$address <- redact_character(x$address)
     x$email <- redact_character(x$email)
     x$phone <- redact_character(x$phone)
+    x$masterId <- redact_character(x$masterId)
     
     x
   }
@@ -49,7 +41,8 @@ redact_plants <- function(x) {
 }
 
 plants |> 
-  redact_plants()
+  redact_plants() |> 
+  unclass()
 
 # Print plants
 
@@ -68,7 +61,7 @@ flow <- get_flow(token,
                  plant_id)
 
 
-print_flow(flow)
+flow
 
 
 # Get day summary ---------------------------------------------------------
@@ -152,3 +145,4 @@ day_summary_table <- get_day_summary_table(token, plant_id, date)
 
 
 plot_day_summary_table(day_summary_table)
+
