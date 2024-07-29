@@ -26,6 +26,8 @@ get_day_summary <- function(token, plant_id, date) {
   res <- res |> 
     httr2::resp_body_json()
   
+  class(res) <- "sunsynkr_day_summary"
+  
   res
   
 }

@@ -23,5 +23,7 @@ get_day_summary_table <- function(token, plant_id, date) {
     purrr::reduce(dplyr::left_join, by = 'dt') |> 
     dplyr::arrange(dt)
   
+  class(out) <- append("sunsynkr_day_summary_table", class(out))
+  
   out
 }

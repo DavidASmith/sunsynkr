@@ -46,11 +46,8 @@ plants |>
 
 # Print plants
 
-print_plants(plants)
-
 plants |> 
-  redact_plants() |> 
-  print_plants()
+  redact_plants() 
 
 # Get flow ----------------------------------------------------------------
 
@@ -66,83 +63,17 @@ flow
 
 # Get day summary ---------------------------------------------------------
 
-date <- "2024-06-21"
+date <- "2024-07-28"
 
-# get_day_summary <- function(token, plant_id, date) {
-#   
-#   url <- paste0("https://api.sunsynk.net/api/v1/plant/energy/", 
-#                 plant_id, 
-#                 "/day?lan=en&date=", 
-#                 date, 
-#                 "&id=", 
-#                 plant_id)
-#   
-#   req <- httr2::request(url) |> 
-#     httr2::req_headers(authorization = paste0("Bearer ", token$data$access_token))
-#   
-#   res <- req |> 
-#     httr2::req_perform()
-#   
-#   res <- res |> 
-#     httr2::resp_body_json()
-#   
-#   res
-#   
-# }
 
 day_summary <- get_day_summary(token, 
                                plant_id, 
                                date)
 
 
-infos <- day_summary$data$infos
-
-
-# day_summary_info_to_col <- function(x) {
-#   
-#   label <- x$label
-#   unit <- x$unit
-#   
-#   col_name <- paste0(label,"_", unit) |> tolower()
-#   
-#   out <- x$records |> 
-#     lapply(function(x) tibble::tibble(dt = x$time, value = x$value)) |>
-#     dplyr::bind_rows() |>
-#     dplyr::mutate(dt = paste0(date, " ", dt)) |>
-#     dplyr::mutate(dt = lubridate::ymd_hm(dt)) |>
-#     dplyr::mutate(value = as.numeric(value)) |> 
-#     dplyr::rename(!!quo_name(col_name) := value)
-#   
-#   out
-#   
-# }
-
-day_summary_info_to_col(infos[[5]], date)
-
-
-# Get and format daily summary
-# get_day_summary_table <- function(token, plant_id, date) {
-#   
-#   day_summary <- get_day_summary(token, 
-#                                  plant_id, 
-#                                  date)
-#   
-#   
-#   infos <- day_summary$data$infos
-#   
-#   out <- infos |> 
-#     lapply(day_summary_info_to_col) |> 
-#     purrr::reduce(dplyr::left_join, by = 'dt') |> 
-#     dplyr::arrange(dt)
-#   
-#   out
-# }
-
 day_summary_table <- get_day_summary_table(token, plant_id, date)
 
 
 # Plot daily summary
-
-
-plot_day_summary_table(day_summary_table)
-
+day_summary_table |> 
+  plot()

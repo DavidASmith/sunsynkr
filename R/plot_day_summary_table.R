@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-plot_day_summary_table <- function(x) {
+plot.sunsynkr_day_summary_table <- function(x) {
   
   x |> 
     tidyr::pivot_longer(-dt) |> 
