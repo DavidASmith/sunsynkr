@@ -10,11 +10,11 @@ plot.sunsynkr_day_summary_table <- function(x) {
   
   x |> 
     tidyr::pivot_longer(-dt) |> 
-    ggplot(aes(dt, value)) + 
-    geom_line() + 
-    facet_wrap(~name, 
-               ncol = 1, 
-               scales = "free_y")
+    ggplot2::ggplot(ggplot2::aes(dt, value)) + 
+    ggplot2::geom_line() + 
+    ggplot2::facet_wrap(~name, 
+                        ncol = 1, 
+                        scales = "free_y")
   
   
 }
