@@ -6,10 +6,11 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-`sunsynkr` helps you to acquire information about Sunsynk photovoltaic
-systems from their API. If you have a Sunsynk inverter and an account to
-view and manage it on [SunsynkConnect](https://sunsynk.net/), you should
-be able to use this package to retrieve information about your plant.
+`sunsynkr` is an R package to help you acquire information about Sunsynk
+photovoltaic systems from their API. If you have a Sunsynk inverter and
+an account to view and manage it on
+[SunsynkConnect](https://sunsynk.net/), you should be able to use this
+package to retrieve information about your plant.
 
 Note that this package is unofficial and is in no way associated with
 Sunsynk. It may stop working (or return misleading outputs) at any time
@@ -21,7 +22,7 @@ fundamentally in future versions.
 
 ## Installation
 
-You can install the current release of `sunsynkr` like so:
+From R, you can install the current release of `sunsynkr` like so:
 
 ``` r
 devtools::install_github("DavidASmith/sunsynkr")
@@ -76,7 +77,7 @@ plants
 #> # A tibble: 1 × 7
 #>   id     name        address                         pac etoday etotal update_at
 #>   <chr>  <chr>       <chr>                         <int>  <dbl>  <dbl> <chr>    
-#> 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…    20   24.7  7370. 2024-07-…
+#> 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…     0   24.7  7370. 2024-07-…
 ```
 
 ### Flow
@@ -100,14 +101,14 @@ power flows managed by the inverter.
 
 ``` r
 flow
-#>   PV   20W -->--                --<--   20W Grid
+#>   PV    0W -----                --<--   17W Grid
 #>                |    -------     |
-#>                -->--|     |--<--
+#>                -----|     |--<--
 #>                     | Inv |
 #>                -->--|     |-->--
 #>                |    -------     |
-#> BATT  240W -->--                -->--  258W Load
-#>      (94%)
+#> BATT  188W -->--                -->--  194W Load
+#>      (88%)
 ```
 
 ### Day summary
