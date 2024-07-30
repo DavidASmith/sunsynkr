@@ -1,12 +1,16 @@
 #' Print a representation of the power flow to the console
 #'
-#' @param x sunsynkr power flow
+#' @param x sunsynkr power flow.
+#' @param ... Required for S3 generics.
 #'
-#' @return
+#' @return Prints a representation of the `sunsynkr_flow` object to the console.
 #' @export
 #'
 #' @examples
-print.sunsynkr_flow <- function(x) {
+#' \dontrun{
+#' print(sunsynkr_flow)
+#' }
+print.sunsynkr_flow <- function(x, ...) {
 
   # Get battery details
   batt_w <- x$data$battPower |> 

@@ -8,6 +8,9 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' get_day_summary_table(token, 1, "2024-07-30")
+#' }
 get_day_summary_table <- function(token, plant_id, date) {
   
   day_summary <- get_day_summary(token, 
@@ -21,7 +24,7 @@ get_day_summary_table <- function(token, plant_id, date) {
     lapply(day_summary_info_to_col, 
            date = date) |> 
     purrr::reduce(dplyr::left_join, by = 'dt') |> 
-    dplyr::arrange(dt)
+    dplyr::arrange(.data$dt)
   
   class(out) <- append("sunsynkr_day_summary_table", class(out))
   

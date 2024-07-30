@@ -15,3 +15,8 @@ List.
 \description{
 Get details of power plants associated with a Sunsynk account
 }
+\examples{
+\dontrun{
+get_plants(token)
+}
+}

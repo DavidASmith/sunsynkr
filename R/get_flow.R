@@ -3,10 +3,13 @@
 #' @param token Authorisation token.
 #' @param plant_id Plant id.
 #'
-#' @return List.
+#' @return List of most recent power flows (and state of charge).
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' get_flow(token, 1)
+#' }
 get_flow <- function(token, 
                      plant_id) {
   

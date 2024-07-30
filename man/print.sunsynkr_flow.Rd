@@ -4,11 +4,21 @@
 \alias{print.sunsynkr_flow}
 \title{Print a representation of the power flow to the console}
 \usage{
-\method{print}{sunsynkr_flow}(x)
+\method{print}{sunsynkr_flow}(x, ...)
 }
 \arguments{
-\item{x}{sunsynkr power flow}
+\item{x}{sunsynkr power flow.}
+
+\item{...}{Required for S3 generics.}
+}
+\value{
+Prints a representation of the \code{sunsynkr_flow} object to the console.
 }
 \description{
 Print a representation of the power flow to the console
+}
+\examples{
+\dontrun{
+print(sunsynkr_flow)
+}
 }

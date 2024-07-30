@@ -19,3 +19,8 @@ A data.frame
 \description{
 Get a daily summary for a plant as a data.frame
 }
+\examples{
+\dontrun{
+get_day_summary_table(token, 1, "2024-07-30")
+}
+}

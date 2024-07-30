@@ -4,10 +4,13 @@
 #' @param plant_id Plant id.
 #' @param date Date in format YYYY-MM-DD
 #'
-#' @return List
+#' @return List of power flow (and state of charge) values for the given day.
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' get_day_summary(token, 1, "2024-07-30")
+#' }
 get_day_summary <- function(token, plant_id, date) {
   
   url <- paste0("https://api.sunsynk.net/api/v1/plant/energy/", 

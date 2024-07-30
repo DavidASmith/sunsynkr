@@ -4,14 +4,21 @@
 \alias{print.sunsynkr_plants}
 \title{Print Sunsynk API plants}
 \usage{
-\method{print}{sunsynkr_plants}(x)
+\method{print}{sunsynkr_plants}(x, ...)
 }
 \arguments{
-\item{x}{Sunsynkr plants}
+\item{x}{\code{sunsynkr_plants} object.}
+
+\item{...}{Required for S3 generics.}
 }
 \value{
-A tibble of summary details for sunsynkr plants
+A tibble of summary details for the \code{sunsynkr_plants} object.
 }
 \description{
 Print Sunsynk API plants
+}
+\examples{
+\dontrun{
+print(sunsynkr_plants)
+}
 }

@@ -17,3 +17,8 @@ data.frame
 \description{
 Converts a daily summary 'infos' item to a dataframe
 }
+\examples{
+\dontrun{
+day_summary_info_to_col(x, "2024-07-30")
+}
+}

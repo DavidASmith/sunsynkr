@@ -1,12 +1,16 @@
 #' Print Sunsynk API plants
 #'
-#' @param x Sunsynkr plants
+#' @param x `sunsynkr_plants` object.
+#' @param ... Required for S3 generics.
 #'
-#' @return A tibble of summary details for sunsynkr plants 
+#' @return A tibble of summary details for the `sunsynkr_plants` object.
 #' @export
 #'
 #' @examples
-print.sunsynkr_plants <- function(x) {
+#' \dontrun{
+#' print(sunsynkr_plants)
+#' }
+print.sunsynkr_plants <- function(x, ...) {
   plant_info <- x$data$infos
   
   plant_info |> 

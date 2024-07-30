@@ -14,8 +14,13 @@ get_day_summary(token, plant_id, date)
 \item{date}{Date in format YYYY-MM-DD}
 }
 \value{
-List
+List of power flow (and state of charge) values for the given day.
 }
 \description{
 Get day summary as a list
+}
+\examples{
+\dontrun{
+get_day_summary(token, 1, "2024-07-30")
+}
 }

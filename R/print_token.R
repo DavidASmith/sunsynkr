@@ -1,12 +1,16 @@
 #' Print details of Sunsynkr token
 #'
-#' @param sunsynkr token
+#' @param x An object of class `sunsynkr_token`.
+#' @param ... Required for S3 generics.
 #'
-#' @return
+#' @return Prints details of the token to the console.
 #' @export
 #'
 #' @examples
-print.sunsynkr_token <- function(x) {
+#' \dontrun{
+#' print(token)
+#' }
+print.sunsynkr_token <- function(x, ...) {
   
   cat("Sunsynk API token - ", x$msg, " \n", 
       "Type:  ", x$data$token_type, "\n", 

@@ -4,11 +4,21 @@
 \alias{print.sunsynkr_token}
 \title{Print details of Sunsynkr token}
 \usage{
-\method{print}{sunsynkr_token}(x)
+\method{print}{sunsynkr_token}(x, ...)
 }
 \arguments{
-\item{sunsynkr}{token}
+\item{x}{An object of class \code{sunsynkr_token}.}
+
+\item{...}{Required for S3 generics.}
+}
+\value{
+Prints details of the token to the console.
 }
 \description{
 Print details of Sunsynkr token
+}
+\examples{
+\dontrun{
+print(token)
+}
 }

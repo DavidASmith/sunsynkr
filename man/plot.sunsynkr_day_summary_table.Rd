@@ -4,14 +4,21 @@
 \alias{plot.sunsynkr_day_summary_table}
 \title{Plots the sunsynkr daily summary table}
 \usage{
-\method{plot}{sunsynkr_day_summary_table}(x)
+\method{plot}{sunsynkr_day_summary_table}(x, ...)
 }
 \arguments{
-\item{x}{susynkr daily summary table}
+\item{x}{susynkr daily summary table.}
+
+\item{...}{Required for S3 generics.}
 }
 \value{
 ggplot2 plot
 }
 \description{
 Plots the sunsynkr daily summary table
+}
+\examples{
+\dontrun{
+plot(sunsynkr_day_summary_table)
+}
 }

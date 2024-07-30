@@ -12,8 +12,13 @@ get_flow(token, plant_id)
 \item{plant_id}{Plant id.}
 }
 \value{
-List.
+List of most recent power flows (and state of charge).
 }
 \description{
 Get current power flow information for a plant
+}
+\examples{
+\dontrun{
+get_flow(token, 1)
+}
 }

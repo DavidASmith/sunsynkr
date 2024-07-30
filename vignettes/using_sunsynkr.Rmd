@@ -159,7 +159,7 @@ day_summary_table
 
 You can also generate a plot of the day summary table.
 
-```{r fig.height=6, fig.width=4}
+```{r fig.height=6, fig.width=6}
 plot(day_summary_table)
 ```
 
