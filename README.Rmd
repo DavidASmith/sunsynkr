@@ -29,7 +29,7 @@ Also note that this package is currently at an early stage of development. Funct
 You can install the current release of `sunsynkr` like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("DavidASmith/sunsynkr")
 ```
 
 ## Example usage

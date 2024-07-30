@@ -24,7 +24,7 @@ fundamentally in future versions.
 You can install the current release of `sunsynkr` like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("DavidASmith/sunsynkr")
 ```
 
 ## Example usage
@@ -76,7 +76,7 @@ plants
 #> # A tibble: 1 × 7
 #>   id     name        address                         pac etoday etotal update_at
 #>   <chr>  <chr>       <chr>                         <int>  <dbl>  <dbl> <chr>    
-#> 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…    38   24.7  7370. 2024-07-…
+#> 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…    20   24.7  7370. 2024-07-…
 ```
 
 ### Flow
@@ -100,14 +100,14 @@ power flows managed by the inverter.
 
 ``` r
 flow
-#>   PV   38W -->--                --<--   17W Grid
+#>   PV   20W -->--                --<--   20W Grid
 #>                |    -------     |
 #>                -->--|     |--<--
 #>                     | Inv |
 #>                -->--|     |-->--
 #>                |    -------     |
-#> BATT  165W -->--                -->--  201W Load
-#>      (95%)
+#> BATT  240W -->--                -->--  258W Load
+#>      (94%)
 ```
 
 ### Day summary
