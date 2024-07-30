@@ -2,9 +2,14 @@ Package: sunsynkr
 Title: Retrieve data for Sunsynk solar power inverters
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("David", "Smith", , "david.alex.smith@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0000-8482-3220"))
+Description: `sunsynkr` helps you to acquire information about Sunsynk 
+    photovoltaic systems from their API. If you have a Sunsynk inverter and an 
+    account to view and manage it on SunsynkConnect, you should be able to use 
+    this package to retrieve information about your plant. Note that this 
+    package is unofficial and is in no way associated with Sunsynk. It may stop 
+    working (or return misleading outputs) at any time and without warning.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

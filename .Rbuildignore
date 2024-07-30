@@ -2,3 +2,4 @@
 ^sandbox/explore\.R$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$

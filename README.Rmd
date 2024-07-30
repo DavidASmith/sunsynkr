@@ -1,28 +1,42 @@
 ---
-title: "Using sunsynkr"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Using sunsynkr}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
 ```
+
+# sunsynkr
+
+<!-- badges: start -->
+<!-- badges: end -->
 
 `sunsynkr` helps you to acquire information about Sunsynk photovoltaic systems from their API. If you have a Sunsynk inverter and an account to view and manage it on [SunsynkConnect](https://sunsynk.net/), you should be able to use this package to retrieve information about your plant. 
 
 Note that this package is unofficial and is in no way associated with Sunsynk. It may stop working (or return misleading outputs) at any time and without warning.
 
-## Setup
+Also note that this package is currently at an early stage of development. Functions may not work as specified and things may change fundamentally in future versions. 
+
+## Installation
+
+You can install the current release of `sunsynkr` like so:
+
+``` r
+# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+```
+
+## Example usage
 
 First, load the package.
 
-```{r setup}
+```{r example}
 library(sunsynkr)
 ```
 
@@ -33,7 +47,7 @@ You must configure environment variables to hold your sunsynk username and passw
 - `SUNSYNK_USER`
 - `SUNSYNK_PASS`
 
-## Get a token
+### Get a token
 
 All `sunsynkr` functions which call the API require a token as an argument. Accordingly, you must first acquire an authentication token.
 
@@ -41,12 +55,12 @@ All `sunsynkr` functions which call the API require a token as an argument. Acco
 token <- get_token()
 token
 ```
+
 You can now use this token to authenticate other `susynkr` functions to the API.
 
-## Get plants details
+### Get plants details
 
 ```{r include=FALSE}
-
 # Redact personal info
 redact_character <- function(x) {
   gsub("\\w", "X", x)
@@ -74,42 +88,30 @@ redact_plants <- function(x) {
   
 }
 
-
 ```
 
 You can now get details of all plants associated with your account.
 
 ```{r}
-
 plants <- get_plants(token)
 
 ```
 
 ```{r include=FALSE}
-
 plant_id <- plants$data$infos[[1]]$id
 
 plants <- plants |> 
   redact_plants()
-
 ```
-The `sunsynkr_plants` object returned by `get_plants()` is also a list. For example, we can return the total kWh generated today for the first plant in the list with the following.
 
-```{r}
-
-plants[["data"]][["infos"]][[1]][["etoday"]]
-
-```
 Printing the `sunsynkr_plants` object returns a tibble summarising the information available for each plant.
 
 ```{r}
-
 plants
 
 ```
-Note that, currently, this function will return details of a maximum of 100 plants. 
 
-## Flow
+### Flow
 
 We can query the most recent power flow from the API for a given plant. We can extract the plant from `plants` like this. 
 
@@ -124,11 +126,6 @@ flow <- get_flow(token,
                  plant_id)
 
 ```
-The `sunsynkr_flow` object returned by `get_flow()` is also a list and you can access its elements in the conventional way. For example, to return the current state of charge of the battery...
-
-```{r}
-flow[["data"]][["soc"]]
-```
 
 Printing the `sunsynkr_flow` object outputs a representation of the power flows managed by the inverter.
 
@@ -136,7 +133,7 @@ Printing the `sunsynkr_flow` object outputs a representation of the power flows 
 flow
 ```
 
-## Day summary
+### Day summary
 
 You can return a summary of all power flows (and battery state of charge) at five minute intervals for a given day.
 
@@ -144,16 +141,6 @@ You can return a summary of all power flows (and battery state of charge) at fiv
 
 date <- lubridate::today() - lubridate::days(1)
 
-
-day_summary <- get_day_summary(token, 
-                               plant_id, 
-                               date)
-
-```
-
-`get_day_summary()` returns an object of `sunsynkr_day_summary` which is also a list. It's likely that you might want this information in a more convenient table form.
-
-```{r}
 day_summary_table <- get_day_summary_table(token, 
                                            plant_id, 
                                            date)
