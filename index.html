@@ -54,7 +54,7 @@
 <div class="page-header"><h1 id="sunsynkr">sunsynkr<a class="anchor" aria-label="anchor" href="#sunsynkr"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p><code>sunsynkr</code> is an R package to help you acquire information about Sunsynk photovoltaic systems from their API. If you have a Sunsynk inverter and an account to view and manage it on <a href="https://sunsynk.net/" class="external-link">SunsynkConnect</a>, you should be able to use this package to retrieve information about your plant.</p>
 <p>Note that this package is unofficial and is in no way associated with Sunsynk. It may stop working (or return misleading outputs) at any time and without warning.</p>
 <p>Also note that this package is currently at an early stage of development. Functions may not work as specified and things may change fundamentally in future versions.</p>
@@ -104,7 +104,7 @@
 <span><span class="co">#&gt; # A tibble: 1 × 7</span></span>
 <span><span class="co">#&gt;   id     name        address                         pac etoday etotal update_at</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;                         &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;    </span></span>
-<span><span class="co">#&gt; 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…     0   24.7  7370. 2024-07-…</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…     0   27.3  7398. 2024-07-…</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="flow">Flow<a class="anchor" aria-label="anchor" href="#flow"></a>
@@ -119,14 +119,14 @@
 <p>Printing the <code>sunsynkr_flow</code> object outputs a representation of the power flows managed by the inverter.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">flow</span></span>
-<span><span class="co">#&gt;   PV    0W -----                --&lt;--   17W Grid</span></span>
+<span><span class="co">#&gt;   PV    0W -----                --&lt;--   19W Grid</span></span>
 <span><span class="co">#&gt;                |    -------     |</span></span>
 <span><span class="co">#&gt;                -----|     |--&lt;--</span></span>
 <span><span class="co">#&gt;                     | Inv |</span></span>
 <span><span class="co">#&gt;                --&gt;--|     |--&gt;--</span></span>
 <span><span class="co">#&gt;                |    -------     |</span></span>
-<span><span class="co">#&gt; BATT  188W --&gt;--                --&gt;--  194W Load</span></span>
-<span><span class="co">#&gt;      (88%)</span></span></code></pre></div>
+<span><span class="co">#&gt; BATT  152W --&gt;--                --&gt;--  166W Load</span></span>
+<span><span class="co">#&gt;      (89%)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="day-summary">Day summary<a class="anchor" aria-label="anchor" href="#day-summary"></a>
@@ -144,16 +144,16 @@
 <span><span class="co">#&gt; # A tibble: 288 × 6</span></span>
 <span><span class="co">#&gt;    dt                   pv_w battery_w `soc_%` load_w grid_w</span></span>
 <span><span class="co">#&gt;    &lt;dttm&gt;              &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1 2024-07-29 00:00:00     0        19      90    167    152</span></span>
-<span><span class="co">#&gt;  2 2024-07-29 00:05:00     0        19      90    165    150</span></span>
-<span><span class="co">#&gt;  3 2024-07-29 00:10:00     0        21      90    166    150</span></span>
-<span><span class="co">#&gt;  4 2024-07-29 00:15:00     0        19      90    166    153</span></span>
-<span><span class="co">#&gt;  5 2024-07-29 00:20:00     0        21      90    163    150</span></span>
-<span><span class="co">#&gt;  6 2024-07-29 00:25:00     0        21      90    165    145</span></span>
-<span><span class="co">#&gt;  7 2024-07-29 00:30:00     0        18      90    164    149</span></span>
-<span><span class="co">#&gt;  8 2024-07-29 00:35:00     0        20      90    164    146</span></span>
-<span><span class="co">#&gt;  9 2024-07-29 00:40:00     0        17      90    163    148</span></span>
-<span><span class="co">#&gt; 10 2024-07-29 00:45:00     0        20      90    164    147</span></span>
+<span><span class="co">#&gt;  1 2024-07-30 00:00:00     0        15      57    172    162</span></span>
+<span><span class="co">#&gt;  2 2024-07-30 00:05:00     0        14      57    172    160</span></span>
+<span><span class="co">#&gt;  3 2024-07-30 00:10:00     0        17      57    169    154</span></span>
+<span><span class="co">#&gt;  4 2024-07-30 00:15:00     0        15      57    170    155</span></span>
+<span><span class="co">#&gt;  5 2024-07-30 00:20:00     0        13      57    161    161</span></span>
+<span><span class="co">#&gt;  6 2024-07-30 00:25:00     0        16      56    171    159</span></span>
+<span><span class="co">#&gt;  7 2024-07-30 00:30:00     0        17      56    166    149</span></span>
+<span><span class="co">#&gt;  8 2024-07-30 00:35:00     0        17      56    167    153</span></span>
+<span><span class="co">#&gt;  9 2024-07-30 00:40:00     0        16      56    170    157</span></span>
+<span><span class="co">#&gt; 10 2024-07-30 00:45:00     0        13      56    165    153</span></span>
 <span><span class="co">#&gt; # ℹ 278 more rows</span></span></code></pre></div>
 <p>You can also generate a plot of the day summary table.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -185,7 +185,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/DavidASmith/sunsynkr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/DavidASmith/sunsynkr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
