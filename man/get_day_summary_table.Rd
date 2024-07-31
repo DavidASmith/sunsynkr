@@ -4,7 +4,7 @@
 \alias{get_day_summary_table}
 \title{Get a daily summary for a plant as a data.frame}
 \usage{
-get_day_summary_table(token, plant_id, date)
+get_day_summary_table(token, plant_id, date, tz = Sys.timezone())
 }
 \arguments{
 \item{token}{Authorisation token}
@@ -12,6 +12,11 @@ get_day_summary_table(token, plant_id, date)
 \item{plant_id}{plant id}
 
 \item{date}{Date for the summary (YYYY-MM-DD).}
+
+\item{tz}{Timezone for the output time. Note that time returned by the API
+is in local time (including DST). It's likely that you'll want this set to
+your local timezone (the default). However, you can specify any timezone as
+required (use \code{OlsonNames()} to return all valid timezones for your system).}
 }
 \value{
 A data.frame

@@ -46,7 +46,6 @@ You can now use this token to authenticate other `susynkr` functions to the API.
 ## Get plants details
 
 ```{r include=FALSE}
-
 # Redact personal info
 redact_character <- function(x) {
   gsub("\\w", "X", x)
@@ -80,30 +79,26 @@ redact_plants <- function(x) {
 You can now get details of all plants associated with your account.
 
 ```{r}
-
 plants <- get_plants(token)
-
 ```
 
 ```{r include=FALSE}
-
 plant_id <- plants$data$infos[[1]]$id
 
 plants <- plants |> 
   redact_plants()
 
 ```
+
 The `sunsynkr_plants` object returned by `get_plants()` is also a list. For example, we can return the total kWh generated today for the first plant in the list with the following.
 
 ```{r}
-
 plants[["data"]][["infos"]][[1]][["etoday"]]
 
 ```
 Printing the `sunsynkr_plants` object returns a tibble summarising the information available for each plant.
 
 ```{r}
-
 plants
 
 ```
@@ -115,6 +110,7 @@ We can query the most recent power flow from the API for a given plant. We can e
 
 ```{r eval=FALSE}
 plant_id <- plants$data$infos[[1]]$id
+
 ```
 
 Then, we can obtain the power flow for the plant.
@@ -128,12 +124,14 @@ The `sunsynkr_flow` object returned by `get_flow()` is also a list and you can a
 
 ```{r}
 flow[["data"]][["soc"]]
+
 ```
 
 Printing the `sunsynkr_flow` object outputs a representation of the power flows managed by the inverter.
 
 ```{r}
 flow
+
 ```
 
 ## Day summary
@@ -141,7 +139,6 @@ flow
 You can return a summary of all power flows (and battery state of charge) at five minute intervals for a given day.
 
 ```{r}
-
 date <- lubridate::today() - lubridate::days(1)
 
 

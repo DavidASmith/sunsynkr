@@ -4,12 +4,17 @@
 \alias{day_summary_info_to_col}
 \title{Converts a daily summary 'infos' item to a dataframe}
 \usage{
-day_summary_info_to_col(x, date)
+day_summary_info_to_col(x, date, tz = Sys.timezone())
 }
 \arguments{
 \item{x}{Daily summary}
 
 \item{date}{Date to be pre-pended to the time to form a date/time field.}
+
+\item{tz}{Timezone for the output time. Note that time returned by the API
+is in local time (including DST). It's likely that you'll want this set to
+your local timezone (the default). However, you can specify any timezone as
+required (use \code{OlsonNames()} to return all valid timezones for your system).}
 }
 \value{
 data.frame
