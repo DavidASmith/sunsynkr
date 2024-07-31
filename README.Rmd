@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # sunsynkr
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/DavidASmith/sunsynkr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DavidASmith/sunsynkr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `sunsynkr` is an R package to help you acquire information about Sunsynk photovoltaic systems from their API. If you have a Sunsynk inverter and an account to view and manage it on [SunsynkConnect](https://sunsynk.net/), you should be able to use this package to retrieve information about your plant. 

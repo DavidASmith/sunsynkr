@@ -4,6 +4,8 @@
 # sunsynkr
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/DavidASmith/sunsynkr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DavidASmith/sunsynkr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 `sunsynkr` is an R package to help you acquire information about Sunsynk
@@ -77,7 +79,7 @@ plants
 #> # A tibble: 1 × 7
 #>   id     name        address                         pac etoday etotal update_at
 #>   <chr>  <chr>       <chr>                         <int>  <dbl>  <dbl> <chr>    
-#> 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…     0   24.7  7370. 2024-07-…
+#> 1 XXXXXX XXXXX XXXXX XX XXXXXXX XX, XXXXXXXXX XXX…     0   27.3  7398. 2024-07-…
 ```
 
 ### Flow
@@ -101,14 +103,14 @@ power flows managed by the inverter.
 
 ``` r
 flow
-#>   PV    0W -----                --<--   17W Grid
+#>   PV    0W -----                --<--   19W Grid
 #>                |    -------     |
 #>                -----|     |--<--
 #>                     | Inv |
 #>                -->--|     |-->--
 #>                |    -------     |
-#> BATT  188W -->--                -->--  194W Load
-#>      (88%)
+#> BATT  152W -->--                -->--  166W Load
+#>      (89%)
 ```
 
 ### Day summary
@@ -128,16 +130,16 @@ day_summary_table
 #> # A tibble: 288 × 6
 #>    dt                   pv_w battery_w `soc_%` load_w grid_w
 #>    <dttm>              <dbl>     <dbl>   <dbl>  <dbl>  <dbl>
-#>  1 2024-07-29 00:00:00     0        19      90    167    152
-#>  2 2024-07-29 00:05:00     0        19      90    165    150
-#>  3 2024-07-29 00:10:00     0        21      90    166    150
-#>  4 2024-07-29 00:15:00     0        19      90    166    153
-#>  5 2024-07-29 00:20:00     0        21      90    163    150
-#>  6 2024-07-29 00:25:00     0        21      90    165    145
-#>  7 2024-07-29 00:30:00     0        18      90    164    149
-#>  8 2024-07-29 00:35:00     0        20      90    164    146
-#>  9 2024-07-29 00:40:00     0        17      90    163    148
-#> 10 2024-07-29 00:45:00     0        20      90    164    147
+#>  1 2024-07-30 00:00:00     0        15      57    172    162
+#>  2 2024-07-30 00:05:00     0        14      57    172    160
+#>  3 2024-07-30 00:10:00     0        17      57    169    154
+#>  4 2024-07-30 00:15:00     0        15      57    170    155
+#>  5 2024-07-30 00:20:00     0        13      57    161    161
+#>  6 2024-07-30 00:25:00     0        16      56    171    159
+#>  7 2024-07-30 00:30:00     0        17      56    166    149
+#>  8 2024-07-30 00:35:00     0        17      56    167    153
+#>  9 2024-07-30 00:40:00     0        16      56    170    157
+#> 10 2024-07-30 00:45:00     0        13      56    165    153
 #> # ℹ 278 more rows
 ```
 
